@@ -1,4 +1,4 @@
-import { createReducer } from '@reduxjs/toolkit';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import { filterContacts } from '../contacts/contacts-actions';
 import {
   fetchAllContacts,
@@ -41,4 +41,11 @@ export const error = createReducer(INITIAL_STATE.error, {
   [addNewContact.rejected]: (_, action) => action.payload,
   [deleteOneContact.pending]: () => null,
   [deleteOneContact.rejected]: (_, action) => action.payload,
+});
+
+export default combineReducers({
+  contacts,
+  filter,
+  loading,
+  error,
 });

@@ -8,24 +8,36 @@ import {
 export const fetchAllContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async () => {
-    const contacts = await fetchContacts();
-    return contacts;
+    try {
+      const contacts = await fetchContacts();
+      return contacts;
+    } catch (error) {
+      console.error(error.message);
+    }
   },
 );
 
 export const addNewContact = createAsyncThunk(
   'contacts/addContacts',
   async ({ name, number }) => {
-    const newContact = await addContacts({ name, number });
-    return newContact;
+    try {
+      const newContact = await addContacts({ name, number });
+      return newContact;
+    } catch (error) {
+      console.error(error.message);
+    }
   },
 );
 
 export const deleteOneContact = createAsyncThunk(
   'contacts/deleteContacts',
   async id => {
-    await deleteContacts(id);
-    return id;
+    try {
+      await deleteContacts(id);
+      return id;
+    } catch (error) {
+      console.error(error.message);
+    }
   },
 );
 

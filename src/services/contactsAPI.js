@@ -3,17 +3,28 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:3000';
 
 export async function fetchContacts() {
-  const { data } = await axios.get(`contacts`);
-  console.log(data);
-  return data;
+  try {
+    const { data } = await axios.get(`contacts`);
+    return data;
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 export async function addContacts(contact) {
-  const { data } = await axios.post(`contacts`, contact);
-  return data;
+  try {
+    const { data } = await axios.post(`contacts`, contact);
+    return data;
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 export async function deleteContacts(id) {
-  await axios.delete(`contacts/${id}`);
-  return id;
+  try {
+    await axios.delete(`contacts/${id}`);
+    return id;
+  } catch (error) {
+    console.error(error.message);
+  }
 }
