@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from 'react-router-dom';
 import { authOperations, authSelectors } from '../redux/auth';
 import AppBar from './AppBar/AppBar';
-import PrivateRoute from './Routes/PrivateRoute';
-import PublicRoute from './Routes/PublicRoute';
+import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
 
 const HomeView = lazy(() => import('../views/HomeView'));
 const RegisterView = lazy(() => import('../views/RegisterView'));
@@ -27,7 +27,7 @@ export default function App() {
           <AppBar />
           <Switch>
             <Suspense fallback={<span>Loading</span>}>
-              <PublicRoute path="/" exact redirectTo="/contacts">
+              <PublicRoute path="/" exact restricted redirectTo="/contacts">
                 <HomeView />
               </PublicRoute>
               <PublicRoute path="/register" exact restricted redirectTo="/">

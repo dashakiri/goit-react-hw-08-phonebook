@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../redux/auth";
+import { FormContainer } from "./Views.styled";
+import { ContactForm, Label, Input, Button } from "../components/Form/Form.styled";
 
 export default function HomeView() {
     const [email, setEmail] = useState('');
@@ -20,34 +22,34 @@ export default function HomeView() {
     };
 
     return(
-        <div>
+        <FormContainer>
             <h1>Login</h1>
 
-            <form onSubmit={handleSubmit} autoComplete="off">
-                <label>
+            <ContactForm onSubmit={handleSubmit} autoComplete="off">
+                <Label>
                     Email 
-                    <input
+                    <Input
                     type="email"
                     name="email"
                     value={email}
                     onChange={handleInputChange}
                     />
-                </label>
+                </Label>
 
-                <label>
+                <Label>
                     Password 
-                    <input
+                    <Input
                     type="password"
                     name="password"
                     value={password}
                     onChange={handleInputChange}
                     />
-                </label>
+                </Label>
 
-                <button type="submit">Login</button>
+                <Button type="submit">Login</Button>
 
-            </form>
-        </div>
+            </ContactForm>
+        </FormContainer>
     )
 
 }

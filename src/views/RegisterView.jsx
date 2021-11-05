@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../redux/auth";
+import { ContactForm, Label, Input, Button } from "../components/Form/Form.styled";
+import { FormContainer } from "./Views.styled";
 
 export default function RegisterView() {
     const [name, setName] = useState('');
@@ -31,43 +33,49 @@ export default function RegisterView() {
     };
 
     return (
-        <div>
+        <FormContainer>
             <h1>Register</h1>
 
-            <form onSubmit={handleSubmit} autoComplete="off">
-                <label>
+            <ContactForm onSubmit={handleSubmit} autoComplete="off">
+                <Label>
                     Name
-                    <input 
+                    <Input 
                     type="text" 
                     name="name"
                     value={name}
+                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                     onChange={handleInputChange}
                     />
-                </label>
+                </Label>
 
-                <label>
+                <Label>
                     Email
-                    <input 
+                    <Input 
                     type="email" 
                     name="email"
                     value={email}
+                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                     onChange={handleInputChange}
                     />
-                </label>
+                </Label>
 
-                <label>
+                <Label>
                     Password
-                    <input 
+                    <Input 
                     type="password" 
                     name="password"
                     value={password}
+                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                     onChange={handleInputChange}
                     />
-                </label>
+                </Label>
 
-                <button type="submit">Register</button>
-            </form>
-        </div>
+                <Button type="submit">Register</Button>
+            </ContactForm>
+        </FormContainer>
     )
 
 }

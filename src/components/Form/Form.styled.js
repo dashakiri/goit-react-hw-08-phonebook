@@ -7,13 +7,12 @@ export const ContactForm = styled.form`
   justify-content: space-evenly;
   flex-direction: column;
   width: 350px;
-  height: 150px;
-  border: 1px solid grey;
 `;
 
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
+  padding-top: 5px;
 `;
 
 export const Input = styled.input`
@@ -25,6 +24,9 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   width: 100px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid grey;
   &:hover,
   &:focus {

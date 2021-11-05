@@ -1,19 +1,20 @@
 import ContactsList from '../components/ContactsList/ContactsList';
 import Form from '../components/Form/Form';
 import Filter from '../components/Filter/Filter';
+import { FormContainer } from './Views.styled';
 
 export default function ContactsView() {
     return (
-        <div>
-      <h2>Phonebook</h2>
+        <FormContainer>
+          <h2>Phonebook</h2>
 
-      <Form />
+          <Form />
 
-      <h2>Contacts</h2>
+          <h2>Contacts</h2>
 
-      <Filter />
+          <Filter />
 
-      <ContactsList />
-    </div>
+          <ContactsList />
+        </FormContainer>
     )
 }

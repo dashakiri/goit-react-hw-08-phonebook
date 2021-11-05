@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { StyledNavLink } from "./Navigation.styled"
 
 export default function AuthNav() {
     return (
-        <NavLink to="/register" exact>
+        <StyledNavLink to="/register" exact>
             Register
-        </NavLink>
+        </StyledNavLink>
     )
 };
