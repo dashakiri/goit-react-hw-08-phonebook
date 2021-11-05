@@ -15,7 +15,6 @@ export default function App() {
   const isFetchingCurrentUser = useSelector(
     authSelectors.getIsFetchingCurrentUser,
   );
-  // const token = useSelector(authSelectors.getToken);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
