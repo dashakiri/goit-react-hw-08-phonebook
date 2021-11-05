@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import Form from "../components/Form/Form";
 import { authOperations } from "../redux/auth";
 
 export default function HomeView() {
@@ -24,7 +23,7 @@ export default function HomeView() {
         <div>
             <h1>Login</h1>
 
-            <Form onSubmit={handleSubmit} autoComplete="off">
+            <form onSubmit={handleSubmit} autoComplete="off">
                 <label>
                     Email 
                     <input
@@ -47,7 +46,7 @@ export default function HomeView() {
 
                 <button type="submit">Login</button>
 
-            </Form>
+            </form>
         </div>
     )
 

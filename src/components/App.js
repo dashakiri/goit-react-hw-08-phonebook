@@ -15,6 +15,7 @@ export default function App() {
   const isFetchingCurrentUser = useSelector(
     authSelectors.getIsFetchingCurrentUser,
   );
+  // const token = useSelector(authSelectors.getToken);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -27,13 +28,13 @@ export default function App() {
           <AppBar />
           <Switch>
             <Suspense fallback={<span>Loading</span>}>
-              <PublicRoute path="/" exact>
+              <PublicRoute path="/" exact redirectTo="/contacts">
                 <HomeView />
               </PublicRoute>
-              <PublicRoute path="/register" exact restricted>
+              <PublicRoute path="/register" exact restricted redirectTo="/">
                 <RegisterView />
               </PublicRoute>
-              <PrivateRoute path="/contacts" exact redirectTo="/">
+              <PrivateRoute path="/contacts" exact>
                 <ContactsView />
               </PrivateRoute>
             </Suspense>
