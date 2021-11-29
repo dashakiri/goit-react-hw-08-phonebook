@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../redux/auth";
 import { ContactForm, Label, Input, Button } from "../components/Form/Form.styled";
-import { FormContainer } from "./Views.styled";
+import { FormContainer } from "./views.styled";
 
 export default function RegisterView() {
     const [name, setName] = useState('');
@@ -43,8 +43,7 @@ export default function RegisterView() {
                     type="text" 
                     name="name"
                     value={name}
-                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                    title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+                    minlength="5"
                     onChange={handleInputChange}
                     />
                 </Label>
@@ -55,8 +54,6 @@ export default function RegisterView() {
                     type="email" 
                     name="email"
                     value={email}
-                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                    title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                     onChange={handleInputChange}
                     />
                 </Label>

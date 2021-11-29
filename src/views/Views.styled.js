@@ -6,3 +6,8 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const Image = styled.img`
+  max-width: 1000px;
+  max-height: 500px;
+`;

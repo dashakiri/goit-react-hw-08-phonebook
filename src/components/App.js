@@ -9,6 +9,7 @@ import PublicRoute from './routes/PublicRoute';
 const HomeView = lazy(() => import('../views/HomeView'));
 const RegisterView = lazy(() => import('../views/RegisterView'));
 const ContactsView = lazy(() => import('../views/ContactsView'));
+const LoginView = lazy(() => import('../views/LoginView'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ export default function App() {
             <Suspense fallback={<span>Loading</span>}>
               <PublicRoute path="/" exact restricted redirectTo="/contacts">
                 <HomeView />
+              </PublicRoute>
+              <PublicRoute path="/login" exact restricted redirectTo="/">
+                <LoginView />
               </PublicRoute>
               <PublicRoute path="/register" exact restricted redirectTo="/">
                 <RegisterView />

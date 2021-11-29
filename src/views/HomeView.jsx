@@ -1,54 +1,35 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { authOperations } from "../redux/auth";
-import { FormContainer } from "./Views.styled";
-import { ContactForm, Label, Input, Button } from "../components/Form/Form.styled";
+// import { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { authOperations } from "../redux/auth";
+import { FormContainer } from "./views.styled";
+import image from '../img/Hand holding mobile phone with chat messages on screen.jpg';
+import { Image} from "./views.styled";
+// import { ContactForm, Label, Input, Button } from "../components/Form/Form.styled";
 
 export default function HomeView() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const dispatch = useDispatch();
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const dispatch = useDispatch();
 
-    const handleInputChange = ({ target: {name, value}}) => {
-        name === 'email' ? setEmail(value) : setPassword(value);
-    };
+    // const handleInputChange = ({ target: {name, value}}) => {
+    //     name === 'email' ? setEmail(value) : setPassword(value);
+    // };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
 
-        dispatch(authOperations.logIn({email, password}));
-        setEmail('');
-        setPassword('');
-    };
+    //     dispatch(authOperations.logIn({email, password}));
+    //     setEmail('');
+    //     setPassword('');
+    // };
 
     return(
         <FormContainer>
-            <h1>Login</h1>
+            <h1>Keep your contacts safe and organised!</h1>
 
-            <ContactForm onSubmit={handleSubmit} autoComplete="off">
-                <Label>
-                    Email 
-                    <Input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={handleInputChange}
-                    />
-                </Label>
+               <Image src={image} alt="hand holding a mobile phone"/> 
 
-                <Label>
-                    Password 
-                    <Input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={handleInputChange}
-                    />
-                </Label>
-
-                <Button type="submit">Login</Button>
-
-            </ContactForm>
+            
         </FormContainer>
     )
 
