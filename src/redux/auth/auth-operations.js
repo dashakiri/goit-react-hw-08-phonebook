@@ -16,12 +16,13 @@ const register = createAsyncThunk(
   'auth/register',
   async ({ name, email, password }) => {
     try {
-      const { data } = await axios.post('/users/signup', {
+      const { data } = await axios.post('/api/users/signup', {
         name,
         email,
         password,
       });
       token.set(data.token);
+      console.log(data);
       return data;
     } catch (error) {
       console.error(error.message);
@@ -53,8 +54,6 @@ const fetchCurrentUser = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     const state = getState();
     const persistedToken = state.auth.token;
-
-    console.log(persistedToken);
 
     if (persistedToken === null) {
       return rejectWithValue();
