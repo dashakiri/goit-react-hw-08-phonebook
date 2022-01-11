@@ -16,7 +16,7 @@ const register = createAsyncThunk(
   'auth/register',
   async ({ name, email, password }) => {
     try {
-      const { data } = await axios.post('/api/users/signup', {
+      const { data } = await axios.post('/users/signup', {
         name,
         email,
         password,

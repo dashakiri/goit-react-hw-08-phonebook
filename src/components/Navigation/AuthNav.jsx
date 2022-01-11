@@ -1,4 +1,4 @@
-import { StyledNavLink } from "./navigation.styled"
+import { StyledNavLink } from "./Navigation.styled"
 
 export default function AuthNav() {
     return (
