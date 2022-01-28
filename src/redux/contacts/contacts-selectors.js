@@ -8,7 +8,6 @@ export const getError = state => state.phoneBook.error;
 export const getFilteredContacts = createSelector(
   [getContacts, getFilter],
   (contacts, filter) => {
-    console.log(contacts);
     return contacts.filter(({ name }) =>
       name.toLowerCase().includes(filter.toLowerCase()),
     );

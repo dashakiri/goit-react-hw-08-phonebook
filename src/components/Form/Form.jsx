@@ -9,14 +9,30 @@ export default function Form() {
 const contacts = useSelector(getContacts);
 const dispatch = useDispatch();
 const [name, setName] = useState('');
-const [number, setNumber] = useState('');
+const [phone, setPhone] = useState('');
+const [email, setEmail] = useState('');
 
 const handleInputName = (e) => {
     const {name, value} = e.currentTarget;
-    name === 'name' ? setName(value) : setNumber(value);
+    switch (name) {
+        case "name":
+            setName(value);
+            break;
+        case "email":
+            setEmail(value);
+            break;
+        case "phone": 
+            setPhone(value);
+            break;
+        default:
+            break;
+    }
+
+
+    // name === 'name' ? setName(value) : setNumber(value);
 };
 
-const onSubmit = (name,number) => dispatch(addNewContact({name, number}));
+const onSubmit = (name, email, phone) => dispatch(addNewContact({name, email, phone}));
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,17 +45,15 @@ const handleSubmit = (e) => {
         return;
     };
 
-    console.log(name)
-    console.log(number)
-
-    onSubmit(name, number);
+    onSubmit(name, email, phone);
 
     reset();
 };
 
 const reset = () => {
     setName('');
-    setNumber('')
+    setPhone('');
+    setEmail('');
 };
 
 return(
@@ -58,14 +72,25 @@ return(
     </Label>
 
     <Label>
-        Number
+        Email
+    <Input
+    type="text"
+    name="email"
+    required
+    value={email}
+    onChange={handleInputName}
+    />
+    </Label>
+
+    <Label>
+        Phone
     <Input
     type="tel"
-    name="number"
+    name="phone"
     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
     title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
     required
-    value={number}
+    value={phone}
     onChange={handleInputName}
     />
     </Label>

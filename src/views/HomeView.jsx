@@ -1,6 +1,5 @@
-import { FormContainer } from "./views.styled";
+import { FormContainer, Image } from "./Views.styled";
 import image from '../img/Hand holding mobile phone with chat messages on screen.jpg';
-import { Image} from "./views.styled";
 
 export default function HomeView() {
 

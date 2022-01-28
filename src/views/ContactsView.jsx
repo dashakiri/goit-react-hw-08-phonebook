@@ -1,7 +1,7 @@
 import ContactsList from '../components/ContactsList/ContactsList';
 import Form from '../components/Form/Form';
 import Filter from '../components/Filter/Filter';
-import { FormContainer } from './views.styled';
+import { FormContainer } from './Views.styled';
 
 export default function ContactsView() {
     return (

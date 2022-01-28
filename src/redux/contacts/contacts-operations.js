@@ -9,8 +9,8 @@ export const fetchAllContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, { rejectWithValue }) => {
     try {
-      const contacts = await fetchContacts();
-      return contacts;
+      const { data } = await fetchContacts();
+      return data.result;
     } catch (error) {
       rejectWithValue(error.message);
     }
@@ -19,9 +19,9 @@ export const fetchAllContacts = createAsyncThunk(
 
 export const addNewContact = createAsyncThunk(
   'contacts/addContacts',
-  async ({ name, number }, { rejectWithValue }) => {
+  async ({ name, email, phone }, { rejectWithValue }) => {
     try {
-      const newContact = await addContacts({ name, number });
+      const newContact = await addContacts({ name, email, phone });
       return newContact;
     } catch (error) {
       rejectWithValue(error.message);
@@ -40,3 +40,11 @@ export const deleteOneContact = createAsyncThunk(
     }
   },
 );
+
+const contactsOperations = {
+  fetchAllContacts,
+  addNewContact,
+  deleteOneContact,
+};
+
+export default contactsOperations;

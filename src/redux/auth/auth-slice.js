@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import authOperations from './auth-operations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: null,
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -13,26 +13,25 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [authOperations.register.fulfilled](state, { payload }) {
-      console.log(payload);
-      state.user = payload.user;
-      state.token = payload.token;
+      state.user = payload.data.email;
+      state.token = payload.data.token;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-      state.user = payload.user;
-      state.token = payload.token;
+      state.user = payload.data.email;
+      state.token = payload.data.token;
       state.isLoggedIn = true;
     },
     [authOperations.logOut.fulfilled](state) {
-      state.user = { name: null, email: null };
+      state.user = null;
       state.token = null;
       state.isLoggedIn = false;
     },
     [authOperations.fetchCurrentUser.pending](state) {
       state.isRefreshing = true;
     },
-    [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
+    [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
+      state.user = payload;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },

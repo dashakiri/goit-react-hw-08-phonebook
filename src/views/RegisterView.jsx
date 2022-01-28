@@ -2,18 +2,18 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../redux/auth";
 import { ContactForm, Label, Input, Button } from "../components/Form/Form.styled";
-import { FormContainer } from "./views.styled";
+import { FormContainer } from "./Views.styled";
 
 export default function RegisterView() {
-    const [name, setName] = useState('');
+    // const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
     const handleInputChange = ({target: {name, value}}) => {
         switch (name) {
-            case 'name': 
-                return setName(value);
+            // case 'name': 
+                // return setName(value);
             case 'email':
                 return setEmail(value);
             case 'password':
@@ -26,8 +26,8 @@ export default function RegisterView() {
     const handleSubmit = (e) => {
         e.preventDefault();   
         // console.log(name)     
-        dispatch(authOperations.register({name, email, password}));
-        setName('');
+        dispatch(authOperations.register({email, password}));
+        // setName('');
         setEmail('');
         setPassword('');
     };
@@ -37,7 +37,7 @@ export default function RegisterView() {
             <h1>Register</h1>
 
             <ContactForm onSubmit={handleSubmit} autoComplete="off">
-                <Label>
+                {/* <Label>
                     Name
                     <Input 
                     type="text" 
@@ -46,7 +46,7 @@ export default function RegisterView() {
                     minlength="5"
                     onChange={handleInputChange}
                     />
-                </Label>
+                </Label> */}
 
                 <Label>
                     Email

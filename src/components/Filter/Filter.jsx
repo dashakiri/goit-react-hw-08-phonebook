@@ -3,16 +3,16 @@ import { useDispatch } from "react-redux";
 import { filterContacts } from "../../redux/contacts/contacts-actions";
 import {FilterLablel, Input} from './Filter.styled';
 
-const Filter = () => {
+const Filter = (e) => {
     const dispatch = useDispatch();
+
 
     return (
         <FilterLablel>
             Find contacts by name
             <Input
             type="text"
-            onChange={e => dispatch(filterContacts(e.target.value))}
-            />
+            onChange={e => dispatch(filterContacts(e.target.value))}            />
         </FilterLablel>
     );
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../redux/auth";
-import { FormContainer } from "./views.styled";
+import { FormContainer } from "./Views.styled";
 import { ContactForm, Label, Input, Button } from "../components/Form/Form.styled";
 
 export default function HomeView() {
