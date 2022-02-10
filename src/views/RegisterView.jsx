@@ -5,15 +5,12 @@ import { ContactForm, Label, Input, Button } from "../components/Form/Form.style
 import { FormContainer } from "./Views.styled";
 
 export default function RegisterView() {
-    // const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
     const handleInputChange = ({target: {name, value}}) => {
         switch (name) {
-            // case 'name': 
-                // return setName(value);
             case 'email':
                 return setEmail(value);
             case 'password':
@@ -25,11 +22,10 @@ export default function RegisterView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();   
-        // console.log(name)     
         dispatch(authOperations.register({email, password}));
-        // setName('');
         setEmail('');
         setPassword('');
+        alert("Please, verify your email!")
     };
 
     return (
@@ -37,17 +33,6 @@ export default function RegisterView() {
             <h1>Register</h1>
 
             <ContactForm onSubmit={handleSubmit} autoComplete="off">
-                {/* <Label>
-                    Name
-                    <Input 
-                    type="text" 
-                    name="name"
-                    value={name}
-                    minlength="5"
-                    onChange={handleInputChange}
-                    />
-                </Label> */}
-
                 <Label>
                     Email
                     <Input 
@@ -64,15 +49,14 @@ export default function RegisterView() {
                     type="password" 
                     name="password"
                     value={password}
-                    // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                    // title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                     onChange={handleInputChange}
                     />
                 </Label>
 
                 <Button type="submit">Register</Button>
             </ContactForm>
-        </FormContainer>
+
+            </FormContainer>
     )
 
 }

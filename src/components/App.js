@@ -34,7 +34,7 @@ export default function App() {
               <PublicRoute path="/login" exact restricted redirectTo="/">
                 <LoginView />
               </PublicRoute>
-              <PublicRoute path="/register" exact restricted redirectTo="/">
+              <PublicRoute path="/register" exact restricted>
                 <RegisterView />
               </PublicRoute>
               <PrivateRoute path="/contacts" exact>
